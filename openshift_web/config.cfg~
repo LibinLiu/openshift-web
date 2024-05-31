@@ -1,0 +1,25 @@
+[environment]
+browser = firefox
+confirm_url_express = "https://openshifttest.redhat.com/app/email_confirm_express?key=Pee9EFYgBCBwE3zdcckLgFnpae0cuoTfofbLNWwv&emailAddress=libra-test%2Bstage47464883%40redhat.com"
+granted_user = ["xtian+1@redhat.com","123456"]
+timeoutsec = 15
+restricted_user = "xtian@redhat.ir"
+rhn_user = ["libra-qe@redhat.com","redhat"]
+libra_server = dev.rhcloud.com
+browserpath = 0
+new_user = libra-test+stage0591164@redhat.com
+ssh_key_file = id_rsa.pub
+confirm_url_flex = https://openshifttest.redhat.com/app/email_confirm_flex?key=bz1vBnu3wlWSQEusbLuiXB67BGjqm9Jf5Cle1apP&emailAddress=xtian%2Btest1%40redhat.com
+proxy = False
+invalid_user = xtian
+url = https://openshifttest.redhat.com
+password = "123456"
+exist_domain = "mytest22"
+tochangepwduser = ["xtian+test107@redhat.com","123456","123456"]
+toregister_user = xtian+test51@redhat.com
+
+[output]
+resultfile = OpenShift.WebTestResult.html
+description = This is OpenShift Web Test Result
+title = OpenShift Web Test Report
+
