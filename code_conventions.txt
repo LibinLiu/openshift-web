@@ -1,0 +1,82 @@
+#Code Conventions for Web Automations
+
+1.Choose python unittest framework presently.
+
+2.Group similar cases to one class,put one class in one file.
+  eg:for regression cases,one bug could be one class
+     for full cases,one page or one function could be one class.
+
+3.Group all classes in one testsuite of a project.
+
+
+4.Name conventions:
+  1)Testsuite file name is prefixed with "ts_"
+  2)Testclass file name is prefixed with "tc_$classname",
+  3)Test class is named with meaningful name like page name or function name
+  4)Test case method is prefixed with "test_$casename",$casename should be simple and meaningful,which could be short casename or bug number
+  5)Use upper case for the first letter of classname
+  
+5.Comments for code:
+  1) Add comments for each class file in the head of the class
+  2) Add comments for each method at least before the method
+  
+6.Generate HTML report
+  To generate HTML report,we'll use HTMLTestRunner instead of TextTestRunner,it is a counterpart to unittest's TextTestRunner.
+
+  *****************************************************************
+   import HTMLTestRunner
+
+    ... define your tests ...
+
+    if __name__ == '__main__':
+        HTMLTestRunner.main()
+
+
+For more customization options, instantiates a HTMLTestRunner object.
+HTMLTestRunner is a counterpart to unittest's TextTestRunner. E.g.
+
+    # output to a file
+    fp = file('my_report.html', 'wb')
+    runner = HTMLTestRunner.HTMLTestRunner(
+                stream=fp,
+                title='My unit test',
+                description='This demonstrates the report output by HTMLTestRunner.'
+                )
+
+    # Use an external stylesheet.
+    # See the Template_mixin class for more customizable options
+    runner.STYLESHEET_TMPL = '<link rel="stylesheet" href="my_stylesheet.css" type="text/css">'
+
+    # run the test
+    runner.run(my_test_suite)
+************************************************************
+ We need to make the result filename, title and decription as parameters transferred from command line.
+ They are separately referred to the following:
+  filename ---> browser type ,eg:Firefox4.html
+  title    ---> component version,eg:rhc-site-0.72.9-1
+  Description ---> Detail information of platform,browser type and component version.
+
+7.Public interfaces
+  Provide all frequently changing varible with command line interface.
+  Like the followings:
+  $ResultFilename,$ResultFileTitle,$ResultFileDescription,$TargetUrl,&SeleniumServerIP,$SeleniumServerPort and other frequently changing parameters.
+  
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
